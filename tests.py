@@ -12,4 +12,6 @@ def create_body(direction: tuple, head: list, sections_number: int = 3):
 
 
 if __name__ == "__main__":
-    pass
+    a = list([1, 2, 3])
+
+    b = a[2]
