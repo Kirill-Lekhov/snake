@@ -1,0 +1,11 @@
+gui.add_element(Label((0, 0, WIDTH, 50), "  Добро пожаловать в игру ЗМЕЙКА!"), 0)
+gui.add_element(Label((50, 70, 110, 40), "Уровни:", -1), 0)
+gui.add_element(Button((60, 120, 100, 40), "Легкий", (255, 255, 255), 1, screen), 0)
+gui.add_element(Label((20, 400, 200, 40), "Не врезайтесь в стенки и в хвост.", -1), 0)
+gui.add_element(Label((200, 500, 200, 80), "Удачи!", (135, 206, 250)), 0)
+gui.add_element(board, 1)
+gui.add_element(Label((0, 0, WIDTH, 50), "  Соберите 10 яблок  "), 1)
+gui.add_element(Snake(board, screen), 1)
+gui.add_element(Apple(board, screen), 1)
+
+
