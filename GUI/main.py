@@ -1,37 +1,31 @@
-class GUI:
-    def __init__(self, num):
+class GameGUI:
+    def __init__(self):
         self.elements = []
-        self.nums = {}
-        self.num = num
 
-    def add_element(self, element, num):
+    def add_element(self, element):
         self.elements.append(element)
-        self.nums[element] = num
 
-    def render(self, surface):
+    def draw(self, surface) -> None:
         for element in self.elements:
-            if self.nums[element] == self.num:
-                render = getattr(element, "render", None)
+            draw = getattr(element, "draw", None)
 
-                if callable(render):
-                    element.render(surface)
+            if callable(draw):
+                element.draw(surface)
 
-    def update(self):
+    def update(self, event) -> None:
         for element in self.elements:
             update = getattr(element, "update", None)
 
             if callable(update):
-                element.update()
+                element.update(event)
 
-    def get_event(self, event):
+    def get_state(self) -> list:
+        values = []
+
         for element in self.elements:
-            get_event = getattr(element, "get_event", None)
+            get_state = getattr(element, "get_state", None)
 
-            if callable(get_event):
-                element.get_event(event)
+            if callable(get_state):
+                values.append(element.get_state())
 
-    def smena(self, num):
-        self.num = num
-
-    def get_num(self):
-        return self.num
+        return values

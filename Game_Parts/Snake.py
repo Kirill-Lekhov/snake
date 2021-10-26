@@ -4,7 +4,7 @@ from random import randint, choice
 
 from pygame import Color
 
-from Game_Parts.EVENTS import STEP_EVENT, EAT_APPLE
+from EVENTS import STEP_EVENT, EAT_APPLE
 
 
 class Snake:
@@ -19,6 +19,7 @@ class Snake:
         self._head = randint(0, board_size[0]), randint(0, board_size[1])
         self._body = self.create_body(self._directions[0], [self._head], self.START_LENGTH)
         self.normalize_coords()
+        self.add_cell = False
 
     def get_head(self) -> tuple:
         return self._head
@@ -54,21 +55,30 @@ class Snake:
 
     def update(self, event) -> None:
         if event.type == STEP_EVENT:
-            for direction, cell in zip(self._directions, self._body):
-                new_position = self.normalize_coord(self.add_coord(direction, cell))
+            if self.add_cell:
+                new_cell_direction = self._directions[-1]
+                new_cell = self._body[-1]
+                self.snake_step()
+                self._body.append(new_cell)
+                self._directions.append(new_cell_direction)
 
-                if new_position in self._body:
-                    raise ValueError
+            else:
+                self.snake_step()
 
-                self._body[self._body.index(cell)] = new_position
-
-            self._directions = self._directions[:1] + self._directions[:-1]
+            self.add_cell = False
 
         elif event.type == EAT_APPLE:
-            new_cell_direction = self._directions[-1]
-            new_cell = self.add_coord(self._body[-1], map(lambda x: -x, new_cell_direction))
-            self._body.append(new_cell)
-            self._directions.append(new_cell_direction)
+            self.add_cell = True
+
+    def snake_step(self):
+        new_body = [self.normalize_coord(self.add_coord(direction, cell))
+                    for direction, cell in zip(self._directions, self._body)]
+
+        if not all(map(lambda x: new_body.count(x) == 1, new_body)):
+            raise ValueError
+
+        self._body = new_body
+        self._directions = self._directions[:1] + self._directions[:-1]
 
     def change_direction(self, direction_name: str) -> None:
         if self.normalize_coord(self.add_coord(self.MOVE_DIRECTION[direction_name], self._body[0])) not in self._body:

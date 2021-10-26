@@ -1,4 +1,0 @@
-from pygame import USEREVENT
-
-STEP_EVENT = USEREVENT + 1
-EAT_APPLE = USEREVENT + 2
