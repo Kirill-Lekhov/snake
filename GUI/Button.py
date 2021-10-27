@@ -2,7 +2,7 @@ from pygame import Color, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 from pygame.draw import rect, line
 from pygame.event import Event
 
-from .Label import Label
+from .label import Label
 
 
 class Button(Label):

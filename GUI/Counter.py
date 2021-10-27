@@ -1,6 +1,6 @@
 from pygame import Color
 
-from .Label import Label
+from .label import Label
 
 
 class Counter(Label):

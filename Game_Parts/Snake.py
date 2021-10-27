@@ -4,7 +4,7 @@ from random import randint, choice
 
 from pygame import Color
 
-from EVENTS import STEP_EVENT, EAT_APPLE
+from constants import STEP_EVENT, EAT_APPLE
 
 
 class Snake:

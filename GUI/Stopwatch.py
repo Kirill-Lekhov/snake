@@ -1,7 +1,7 @@
 from pygame import Color
 
-from EVENTS import TIMER_UPDATE
-from .Label import Label
+from constants import TIMER_UPDATE
+from .label import Label
 
 
 class Stopwatch(Label):

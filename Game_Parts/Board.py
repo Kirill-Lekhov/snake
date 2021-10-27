@@ -1,7 +1,7 @@
 from pygame import Color, Rect, Surface
 from pygame.draw import rect
 
-from CONSTANTS import BACKGROUND_COLOR
+from constants import BACKGROUND_COLOR
 
 
 class Board:

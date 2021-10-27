@@ -1,6 +1,6 @@
 from pygame import Color
 
-from EVENTS import START_GAME, EAT_APPLE, BACK_TO_MAIN_MENU
+from constants import START_GAME, EAT_APPLE, BACK_TO_MAIN_MENU
 from . import GameGUI, Label, Button, Counter, Stopwatch
 
 

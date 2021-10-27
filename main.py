@@ -1,14 +1,13 @@
 import pygame
 
 from GUI.load import load_main_menu, load_game_gui, load_end_game
-from Game_Parts import Game
+from game_parts import Game
 
-from CONSTANTS import SIZE, FPS, BACKGROUND_COLOR, SNAKE_STEP_DELAY
-from EVENTS import STEP_EVENT, START_GAME, TIMER_UPDATE, END_GAME, BACK_TO_MAIN_MENU
+from constants import *
 
 
 pygame.init()
-pygame.display.set_caption("PyGame Snake 1.0.0")
+pygame.display.set_caption("PyGame Snake 1.0.1")
 pygame.display.set_icon(pygame.image.load("game_logo.png"))
 SCREEN = pygame.display.set_mode(SIZE)
 CLOCK = pygame.time.Clock()

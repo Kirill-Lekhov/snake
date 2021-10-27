@@ -1,12 +1,11 @@
 from pygame import Surface
 from pygame.event import Event
 
-from .Apple import Apple
-from .Board import Board
-from .Snake import Snake
-from .Controller import Controller
-
-from EVENTS import EAT_APPLE, END_GAME
+from .apple import Apple
+from .board import Board
+from .snake import Snake
+from .controller import Controller
+from constants import EAT_APPLE, END_GAME
 
 
 class Game:

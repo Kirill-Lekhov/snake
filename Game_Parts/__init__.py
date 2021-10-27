@@ -1,4 +1,4 @@
-from .Apple import Apple
-from .Board import Board
-from .Snake import Snake
+from .apple import Apple
+from .board import Board
+from .snake import Snake
 from .main import Game
