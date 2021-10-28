@@ -1,7 +1,11 @@
 from pygame import Color
 
 from constants import START_GAME, EAT_APPLE, BACK_TO_MAIN_MENU
-from . import GameGUI, Label, Button, Counter, Stopwatch
+from .label import Label
+from .main import GameGUI
+from .button import Button
+from .counter import Counter
+from .stopwatch import Stopwatch
 
 
 def load_main_menu(screen_size: tuple, screen_background_color, pygame) -> GameGUI:
@@ -12,12 +16,12 @@ def load_main_menu(screen_size: tuple, screen_background_color, pygame) -> GameG
     top_margin = height // 2 - (2 * 50) // 1.5
 
     label_length = 200
-    gui.add_element(Label((width//2 - label_length//2, top_margin, label_length, 50), "Snake Game", -1,
+    gui.add_element(Label((width // 2 - label_length // 2, top_margin, label_length, 50), "Snake Game", -1,
                           Color("purple")))
 
     button_length = 100
-    gui.add_element(Button((width//2 - button_length//2, top_margin + 50, button_length, 50), "Start!", START_GAME,
-                           pygame, Color("purple"), screen_background_color))
+    gui.add_element(Button((width // 2 - button_length // 2, top_margin + 50, button_length, 50), "Start!", START_GAME,
+						   pygame, Color("purple"), screen_background_color))
 
     return gui
 
@@ -53,7 +57,7 @@ def load_end_game(screen_size: tuple, screen_background_color, pygame, score, ti
 
     button_length = 225
     gui.add_element(Button((width // 2 - button_length // 2, top_margin + 100, button_length, 50), "To main menu",
-                           BACK_TO_MAIN_MENU, pygame, Color("purple"), screen_background_color))
+						   BACK_TO_MAIN_MENU, pygame, Color("purple"), screen_background_color))
 
     return gui
 

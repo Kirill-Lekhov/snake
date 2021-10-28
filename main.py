@@ -7,7 +7,7 @@ from constants import *
 
 
 pygame.init()
-pygame.display.set_caption("PyGame Snake 1.0.1")
+pygame.display.set_caption("PyGame Snake 1.0.2")
 pygame.display.set_icon(pygame.image.load("game_logo.png"))
 SCREEN = pygame.display.set_mode(SIZE)
 CLOCK = pygame.time.Clock()
